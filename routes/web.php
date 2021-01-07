@@ -18,5 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/search','PriceController@showForm')->name('showForm');
-Route::get('/test','PriceController@test')->name('test');
 Route::post('/search','PriceController@showPrice')->name('showPrice');

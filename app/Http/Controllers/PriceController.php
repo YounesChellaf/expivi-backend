@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Price;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class PriceController extends Controller
 {
@@ -90,8 +92,10 @@ class PriceController extends Controller
         ];
     }
 
+//    Function that shows price
     public function showPrice(Request $request){
         $dimention = $this->getNearestDimention($request->width,$request->length);
+        $price= Price::where('width',$dimention['width'])->where('length',$dimention['length'])->first()->price;
         dd(Price::where('width',$dimention['width'])->where('length',$dimention['length'])->first()->price);
     }
 }
